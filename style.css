@@ -1,0 +1,42 @@
+/* Business Records: style.css */
+:root{--bg:#EEF2F1;--panel:#fff;--ink:#12201D;--muted:#4C5F5A;--line:#C9D5D2;--accent:#1E6B4E;--on:#fff;--bar:#14332C;--bad:#B3261E;--ok:#1E7A4F;--warn:#9A6100;--info:#1F4FD8;--shadow:0 1px 2px rgba(20,51,44,.08),0 4px 14px rgba(20,51,44,.05);
+box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A18;--panel:#162522;--ink:#E6EFEC;--muted:#9BB0AA;--line:#2B3F3B;--accent:#5FCB92;--on:#0F1A18;--bar:#0B1412;--bad:#FF8A80;--ok:#5FCB92;--warn:#F2B84B;--info:#7FA0FF;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0F1A18;--panel:#162522;--ink:#E6EFEC;--muted:#9BB0AA;--line:#2B3F3B;--accent:#5FCB92;--on:#0F1A18;--bar:#0B1412;--bad:#FF8A80;--ok:#5FCB92;--warn:#F2B84B;--info:#7FA0FF;--shadow:none}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.bar{background:var(--bar);color:#fff;padding:calc(.9rem + env(safe-area-inset-top,0px)) 1rem .9rem}
+.in{max-width:70rem;margin:0 auto;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+h1{font-size:1.25rem;margin:0;font-weight:700;letter-spacing:.01em}
+#status{color:#BFD6CE;font-size:.85rem}
+.wrap{max-width:70rem;margin:0 auto;padding:1.25rem 1rem 2rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem;margin-bottom:1.25rem}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:.6rem;padding:.9rem 1rem;box-shadow:var(--shadow)}
+.stat span{display:block;color:var(--muted);font-size:.85rem}
+.stat b{font-size:1.4rem;font-weight:700}
+nav{display:flex;gap:.25rem;border-bottom:1px solid var(--line);margin-bottom:1rem;overflow-x:auto}
+nav button{border:0;border-bottom:3px solid transparent;background:none;color:var(--muted);padding:.7rem 1rem;font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
+nav button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tools{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+#q{flex:1;min-width:14rem;margin:0}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:.45rem;padding:.5rem .85rem;font:inherit;font-weight:500;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:.6rem;padding:1.1rem;margin-bottom:1rem;box-shadow:var(--shadow)}
+.card h2{font-size:1rem;margin:0 0 .8rem;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.8rem}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--muted)}
+input,select,textarea{width:100%;margin-top:.25rem;padding:.55rem .6rem;border:1px solid var(--line);border-radius:.4rem;background:var(--bg);color:var(--ink);font:inherit;font-weight:400}
+textarea{min-height:3.2rem;resize:vertical}
+.go{margin-top:1rem;background:var(--accent);color:var(--on);border:0;padding:.65rem 1.4rem;border-radius:.45rem;font:inherit;font-weight:600;cursor:pointer}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:42rem;font-size:.9rem}
+th,td{text-align:left;padding:.6rem .55rem;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:.8rem;border-top:0;background:var(--bg)}
+tbody tr:hover{background:var(--bg)}
+td input,td select{margin:0;min-width:6rem;padding:.35rem .4rem;font-size:.88rem}
+select[data-v="Received"]{color:var(--warn)}select[data-v="In progress"]{color:var(--info)}select[data-v="Ready"]{color:var(--ok)}select[data-v="Collected"]{color:var(--muted)}
+.del{background:none;border:1px solid var(--line);color:var(--bad);border-radius:.4rem;padding:.25rem .6rem;cursor:pointer;font:inherit;font-size:.85rem}
+.empty{color:var(--muted);padding:.6rem 0}
+.owe{color:var(--bad);font-weight:600}
+[hidden]{display:none!important}

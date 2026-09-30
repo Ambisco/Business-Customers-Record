@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Business Records</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar"><div class="in"><h1>Business Records</h1><div id="status" role="status">Loading…</div></div></header>
+<div class="wrap">
+<div class="stats" id="stats"></div>
+<nav role="tablist" aria-label="Sections">
+<button role="tab" data-t="customers" aria-selected="true">Customers</button>
+<button role="tab" data-t="jobs" aria-selected="false">Jobs</button>
+<button role="tab" data-t="expenses" aria-selected="false">Expenses</button>
+<button role="tab" data-t="money" aria-selected="false">Money</button>
+</nav>
+
+<div class="tools"><input id="q" type="search" placeholder="Search customers, jobs and expenses" aria-label="Search"><button class="btn" data-x="customers">Export customers</button><button class="btn" data-x="jobs">Export jobs</button><button class="btn" data-x="expenses">Export expenses</button></div>
+<section id="customers">
+<form class="card" id="fc"><h2>New customer</h2><div class="grid">
+<label>Customer<input name="name" required></label>
+<label>Phone<input name="phone" type="tel"></label>
+<label>Email<input name="email" type="email"></label>
+<label>Address<input name="address"></label></div>
+<button class="go">Save customer</button></form>
+<div class="card scroll"><table><thead><tr><th>Customer</th><th>Phone</th><th>Email</th><th>Address</th><th>Jobs</th><th>Owes</th><th></th></tr></thead><tbody id="tc"></tbody></table><div class="empty" id="ec">No customers yet.</div></div>
+</section>
+
+<section id="jobs" hidden>
+<form class="card" id="fj"><h2>New job</h2><div class="grid">
+<label>Job number<input name="no" required></label>
+<label>Customer<select name="customer" required id="cs"></select></label>
+<label>Device<input name="device" required></label>
+<label>Date<input name="date" type="date" required></label>
+<label>Status<select name="status"><option>Received</option><option>In progress</option><option>Ready</option><option>Collected</option></select></label>
+<label>Cost (₦)<input name="cost" type="number" min="0" step="any" required></label>
+<label>Payment received (₦)<input name="pay" type="number" min="0" step="any" value="0"></label></div>
+<div class="grid" style="margin-top:.75rem">
+<label>Problem<textarea name="problem"></textarea></label>
+<label>Diagnosis<textarea name="diag"></textarea></label>
+<label>Work performed<textarea name="work"></textarea></label>
+<label>Parts used<textarea name="parts"></textarea></label></div>
+<div id="nocust" class="empty" hidden>Add a customer first, then come back to add a job.</div>
+<button class="go">Save job</button></form>
+<div class="card scroll"><label style="max-width:14rem;margin-bottom:.5rem">Show<select id="sf"><option value="">All jobs</option><option>Received</option><option>In progress</option><option>Ready</option><option>Collected</option></select></label><table><thead><tr><th>Job</th><th>Date</th><th>Customer</th><th>Device</th><th>Status</th><th>Problem / diagnosis / work / parts</th><th>Cost</th><th>Payment</th><th>Balance</th><th></th></tr></thead><tbody id="tj"></tbody></table><div class="empty" id="ej">No jobs yet.</div></div>
+</section>
+
+<section id="expenses" hidden>
+<form class="card" id="fe"><h2>New expense</h2><div class="grid">
+<label>Date<input name="date" type="date" required></label>
+<label>Description<input name="desc" required></label>
+<label>Amount (₦)<input name="amt" type="number" min="0" step="any" required></label></div>
+<button class="go">Save expense</button></form>
+<div class="card scroll"><table><thead><tr><th>Date</th><th>Description</th><th>Amount</th><th></th></tr></thead><tbody id="te"></tbody></table><div class="empty" id="ee">No expenses yet.</div></div>
+</section>
+
+<section id="money" hidden>
+<div class="card scroll" style="margin-top:1rem"><h2>By month</h2><table><thead><tr><th>Month</th><th>Income</th><th>Expenses</th><th>Profit</th></tr></thead><tbody id="tmo"></tbody></table></div>
+<div class="card scroll"><h2>Outstanding payments</h2><table><thead><tr><th>Job</th><th>Customer</th><th>Phone</th><th>Balance</th></tr></thead><tbody id="tm"></tbody></table><div class="empty" id="em">Nothing outstanding.</div></div>
+</section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
